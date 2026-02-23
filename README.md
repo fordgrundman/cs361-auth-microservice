@@ -118,6 +118,18 @@ Example:
 
 ## Endpoints
 
+**!!!-NOTE-!!!:** I recommend using **_Postman_** for testing any sort of API endpoints but if you prefer curl in your terminal that's up to you. Postman will help a TON when troubleshooting endpoints
+[(Postman Link)](https://identity.getpostman.com/signup?continue=https%3A%2F%2Fwww.postman.com%2Fpostman%2F30-days-of-postman-for-developers%2Fcollection%2Ff6i4cuu%2Fday-00-pre-requisites&utm_source=postman&utm_medium=app_web&utm_content=navbar&utm_term=sign_up&authFlowId=4f71255d-9e17-4fe6-a3b9-75ed2f62895e).
+
+If you don't want to use postman I also added an env.sh file that includes the endpoint and titled it `BASE`. You can run the command below whenever you open a terminal in the root folder to make API endpoints easier to test. Then instead of typing `curl -X CRUD "https://blahblahblah:1234/endpoint"` you can just type `curl -X CRUD "$BASE/endpoint"`
+
+```Bash
+source env.sh
+echo "$BASE"
+```
+
+---
+
 ### 1. POST /signup
 
 Request JSON:
