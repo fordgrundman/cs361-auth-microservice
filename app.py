@@ -341,6 +341,9 @@ def introspect():
     }), 200
 
 
+init_db() # Ensure DB schema exists when running under gunicorn too
+
+
 if __name__ == "__main__":
-    init_db()
     APP.run(host="0.0.0.0", port=PORT, debug=True)
+    
