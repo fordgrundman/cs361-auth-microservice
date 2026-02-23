@@ -93,6 +93,10 @@ Local:
 
 - `http://127.0.0.1:5000`
 
+Remote:
+
+- `very-ardenia-sirmrtyler-tech-solutions-llc-1a046f3f.koyeb.app/`
+
 ### All endpoints accept/return JSON.
 
 - Use `Content-Type: application/json`
