@@ -14,8 +14,20 @@ load_dotenv()
 
 APP = Flask(__name__)
 
-#enable access from origins other than our local auth service 
+# enable access from origins other than our local auth service 
 CORS(APP)
+
+
+# expliclity allow all origins
+CORS(APP, resources={r"/*": {"origins": "*"}}, allow_headers=["Content-Type", "X-App-Id", "X-App-Secret"])
+
+# send access control allow headers back to prevent CORS issues
+@APP.after_request
+def add_cors_headers(response):
+    response.headers.setdefault("Access-Control-Allow-Origin", "*")
+    response.headers.setdefault("Access-Control-Allow-Headers", "Content-Type, X-App-Id, X-App-Secret")
+    response.headers.setdefault("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+    return response
 
 DB_PATH = os.getenv("DB_PATH", "auth.db")
 JWT_SECRET = os.getenv("JWT_SECRET", "dev-secret-change-me")
